@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Weather Dashboard</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark justify-content-center">
+        <span class="navbar-brand mb-0 h1">Weather Dashboard</span>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 text-left">
+                <div class="card" style="width: 18rem;">
+                    <h4>Search for a City: </h4>
+                    <div class="input-group mb-3">
+                        <input type="text" placeholder="City" class="form-control" aria-label="City"
+                            aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button" id="searhBtn">Search</button>
+                        </div>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Previously Searched Cities:</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div>
+                <div class="col-lg-8 col-lg-offset-2 text-left">
+                    <h2>City: <span id="city"></span></h2>
+                    <h2>Main Weather: <span id="main_weather"></span></h2>
+                    <h2>Description: <span id="description_weather"></span></h2>
+                    <img id="weather_image" src="">
+                    <h2>Temperature: <span id="temperature"></span></h2>
+                    <h2>Humidity: <span id="humidity"></span></h2>
+                    <h2>Wind Speed: <span id="wind_speed"></span></h2>
+                    <h2>UV Index: <span id="uvindex"></span></h2>
+                </div>
+                <div>
+                    <h1>5 Day Forecast: </h1>
+                    <p id="fiveDay"></p>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="script.js"></script>
+</body>
+
+</html>
