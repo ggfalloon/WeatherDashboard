@@ -24,38 +24,43 @@
                 <div class="card" style="width: 18rem;">
                     <h4>Search for a City: </h4>
                     <div class="input-group mb-3">
-                        <input type="text" placeholder="City" class="form-control" aria-label="City"
-                            aria-describedby="button-addon2">
+                        <input type="text" placeholder="City Name" class="form-control" aria-label="City"
+                            aria-describedby="button-addon2" id="cityName">
                         <div class="input-group-append">
-                            <button class="btn btn-primary" type="button" id="searhBtn">Search</button>
+                            <button class="btn btn-primary" type="button" id="searchBtn"><i
+                                    class="fa fa-search"></i></button>
                         </div>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Previously Searched Cities:</li>
-                    </ul>
+                        <li class="list-group-item list-group-item-action active">Previously Searched Cities:</li>
+                    </ul><br>
+
                 </div>
+
             </div>
 
-            <div>
-                <div class="col-lg-8 col-lg-offset-2 text-left">
-                    <h2>City: <span id="city"></span></h2>
-                    <h2>Main Weather: <span id="main_weather"></span></h2>
-                    <h2>Description: <span id="description_weather"></span></h2>
+            <div class="col-lg-8 col-lg-offset-2 text-left">
+                <div class="card">
+                    <h2>City: <span id="city"></span><span id="date"></span></h2>
+
                     <img id="weather_image" src="">
-                    <h2>Temperature: <span id="temperature"></span></h2>
-                    <h2>Humidity: <span id="humidity"></span></h2>
-                    <h2>Wind Speed: <span id="wind_speed"></span></h2>
-                    <h2>UV Index: <span id="uvindex"></span></h2>
-                </div>
-                <div>
-                    <h1>5 Day Forecast: </h1>
+                    <h3>Temperature: <span id="temperature"></span></h3>
+                    <h3>Humidity: <span id="humidity"></span></h3>
+                    <h3>Wind Speed: <span id="wind_speed"></span></h3>
+                    <h3>UV Index: <span id="uvindex"></span></h3>
+                </div><br>
+
+                <div class="card">
+                    <h2>5 Day Forecast: </h2>
                     <p id="fiveDay"></p>
+
                 </div>
             </div>
         </div>
+    </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
