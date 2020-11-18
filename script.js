@@ -1,5 +1,8 @@
 $(document).ready(function () {
 
+    var currentDay = $("#date");
+    currentDay.text(moment().format('MM-DD-YYYY'));
+
     $("#searchBtn").click(function () {
         var cityName = $("#cityName").val();
         var appID = "21292f97c006ec7feb138c594d793fed";
@@ -15,13 +18,7 @@ $(document).ready(function () {
         // var latLon = http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=" + appID;
 
         // $.getJSON(weather, function (json) {
-        //     $("#city").html(json.name);
-        //     // $("#main_weather").html(json.weather[0].main);
-        //     // $("#description_weather").html(json.weather[0].description);
-        //     $("#weather_image").attr("src", "http://openweathermap.org/img/w/" + json.weather[0].icon + ".png");
-        //     $("#temperature").html(json.main.temp);
-        //     $("#humidity").html(json.main.humidity);
-        //     $("#wind_speed").html(json.wind.speed);
+        //     
         //     $("#uvindex").html(json.main.value);
 
         //     $("#temperature").text((($("#temperature").text() * (9 / 5)) + 32));
@@ -37,7 +34,16 @@ $(document).ready(function () {
             url: queryURL,
             method: "GET"
         }).then(function (response) {
-            console.log(response);
+            console.log(response.main.temp);
+
+            $("#city").html(response.name);
+            // $("#weather_image").attr("src", "http://openweathermap.org/img/w/" + weather[0].icon + ".png");
+            $("#temperature").html(response.main.temp);
+            $("#humidity").html(response.main.humidity);
+            $("#wind_speed").html(response.wind.speed);
+
+
+
         });
 
 
