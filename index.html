@@ -31,18 +31,20 @@
                                     class="fa fa-search"></i></button>
                         </div>
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item list-group-item-action active">Previously Searched Cities:</li>
-                    </ul><br>
-
+                    <div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item list-group-item-action active">Previously Searched Cities:</li>
+                            <li id="newCity" type="button" class="btn-block"></li>
+                        </ul><br>
+                    </div>
                 </div>
 
             </div>
 
-            <div class="col-lg-8 col-lg-offset-2 text-left">
+            <div class="col-lg-8 text-left">
                 <div class="card">
-                    <h2>City: <span id="city"></span> &nbsp;<span id="date"></span></h2>
-                    <h1><img id="weather_image" src=""></h1>
+                    <h2>City: <span id="city"></span> &nbsp;<span id="date"></span><img id="weather_image" src=""></h2>
+
                     <h3>Temperature: <span id="temperature"></span>&#176;F</h3>
                     <h3>Humidity: <span id="humidity"></span>%</h3>
                     <h3>Wind Speed: <span id="wind_speed"></span></h3>
