@@ -5,6 +5,8 @@ $(document).ready(function () {
     localStorage.getItem("newCities");
 
     $("#searchBtn").click(function () {
+
+
         var cityName = $("#cityName").val();
         var appID = "21292f97c006ec7feb138c594d793fed";
         var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial&appid=" + appID;
@@ -39,16 +41,6 @@ $(document).ready(function () {
 
         });
 
-
-        function createButton() {
-            var cityList = $('<button>').text(cityName);
-
-            $("#newCity").prepend(cityList);
-            localStorage.setItem("newCities", cityList);
-
-        } createButton();
-
-
         var queryURL5 = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&appid=" + appID;
 
         $.ajax({
@@ -56,25 +48,31 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (response5) {
 
-            var dayList = " ";
-
             for (i = 0; i < response5.list.length; i++) {
                 if (response5.list[i].dt_txt.split(" ")[1] === "18:00:00") {
+                    var containerColumn = $("<div class='col-xs-1' id='fiveDay'>");
 
-                    dayList += "<div>";
-                    dayList += "<ul>";
-                    dayList += "<li>" + response5.list[i].dt_txt.split(" ")[0] + "</li>";
-                    dayList += "<li>" + "<img src='https://openweathermap.org/img/w/" + response5.list[i].weather[0].icon + ".png'>" + "</li>";
-                    dayList += "<li>" + response5.list[i].main.temp + "</li>";
-                    dayList += "<li>" + response5.list[i].main.humidity + "</li>";
-                    dayList += "</ul>";
-                    dayList += "</div>";
-                }
-            } $("#fiveDay").html(dayList);
+                    var dateEl = $("<h6>").append("Date: " + response5.list[i].dt_txt.split(" ")[0]);
+                    var iconEl = $("<h6>").append("<img src='https://openweathermap.org/img/w/" + response5.list[i].weather[0].icon + ".png'>")
+                    var tempEl = $("<h6>").append("Temp: " + response5.list[i].main.temp + '\u00B0');
+                    var humidityEl = $("<h6>").append("Humidity: " + response5.list[i].main.humidity + "%")
+
+                    containerColumn.append(dateEl, iconEl, tempEl, humidityEl);
+
+                } $("#forecastRow").append(containerColumn);
+            }
 
         });
 
 
+        function createButton() {
+            var cityList = $('<button>').text(cityName);
+            cityList.addClass("btn btn-secondary btn-lg btn-block");
+
+            $("#newCity").prepend(cityList);
+            localStorage.setItem("newCities", cityList);
+
+        } createButton();
 
     });
 });

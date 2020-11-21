@@ -1,0 +1,32 @@
+body {
+    background-color: #ffffff;
+}
+
+#heading {
+    font-size: 40px;
+}
+
+.container {
+padding: 2em;
+text-align: center;
+}
+
+/* .search {
+    padding-top: 1em;
+} */
+
+#forecastRow {
+    padding-top: 1em;
+    padding-bottom: 2em;
+    margin: .1em;
+}
+
+#fiveDay {
+    list-style: none;
+    background-color: royalblue;
+    color: white;
+    padding: .5em;
+    margin-left: .1em;
+   
+
+}
