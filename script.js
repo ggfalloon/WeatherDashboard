@@ -1,16 +1,19 @@
 $(document).ready(function () {
 
+    // Displays the current Day
     var currentDay = $("#date").text(moment().format('MM-DD-YYYY'));
 
+    // Retrieves last searched item from local storage
     localStorage.getItem("newCities");
 
+    // When City is typed and search button is clicked, the current and 5 day weather foreast is displayed
     $("#searchBtn").click(function () {
-
 
         var cityName = $("#cityName").val();
         var appID = "21292f97c006ec7feb138c594d793fed";
         var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial&appid=" + appID;
 
+        // AJAX call to pull weather data
         $.ajax({
             url: queryURL,
             method: "GET"
@@ -22,7 +25,7 @@ $(document).ready(function () {
             $("#humidity").html(response.main.humidity);
             $("#wind_speed").html(response.wind.speed);
 
-
+            // AJAX call to pull uv-index and adjust color according to rating
             $.ajax({
                 url: "https://api.openweathermap.org/data/2.5/uvi?lat=" + response.coord.lat + "&lon=" + response.coord.lon + "&appid=" + appID,
                 method: "GET"
@@ -37,10 +40,11 @@ $(document).ready(function () {
                 } else {
                     $("#uvindex").css("background-color", "green");
                 }
+                // clears city input field
             }); $("#cityName").val(" ");
 
         });
-
+        // AJAX call to pull 5-day forecast
         var queryURL5 = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&appid=" + appID;
 
         $.ajax({
@@ -64,7 +68,7 @@ $(document).ready(function () {
 
         });
 
-
+        // This function creates a button for each city searched
         function createButton() {
             var cityList = $('<button>').text(cityName);
             cityList.addClass("btn btn-secondary btn-lg btn-block");
