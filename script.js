@@ -74,6 +74,7 @@ $(document).ready(function () {
             cityList.addClass("btn btn-secondary btn-lg btn-block");
 
             $("#newCity").prepend(cityList);
+
             localStorage.setItem("newCities", cityList);
 
         } createButton();
