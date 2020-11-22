@@ -4,7 +4,6 @@ $(document).ready(function () {
     var currentDay = $("#date").text(moment().format('MM-DD-YYYY'));
 
     // Retrieves last searched item from local storage
-    localStorage.getItem("newCities");
 
     // When City is typed and search button is clicked, the current and 5 day weather foreast is displayed
     $("#searchBtn").click(function () {
@@ -53,17 +52,19 @@ $(document).ready(function () {
         }).then(function (response5) {
 
             for (i = 0; i < response5.list.length; i++) {
+
                 if (response5.list[i].dt_txt.split(" ")[1] === "18:00:00") {
                     var containerColumn = $("<div class='col-xs-1' id='fiveDay'>");
 
+
                     var dateEl = $("<h6>").append("Date: " + response5.list[i].dt_txt.split(" ")[0]);
-                    var iconEl = $("<h6>").append("<img src='https://openweathermap.org/img/w/" + response5.list[i].weather[0].icon + ".png'>")
+                    var iconEl = $("<h6>").append("<img src='https://openweathermap.org/img/w/" + response5.list[i].weather[0].icon + ".png'>");
                     var tempEl = $("<h6>").append("Temp: " + response5.list[i].main.temp + '\u00B0');
-                    var humidityEl = $("<h6>").append("Humidity: " + response5.list[i].main.humidity + "%")
+                    var humidityEl = $("<h6>").append("Humidity: " + response5.list[i].main.humidity + "%");
 
                     containerColumn.append(dateEl, iconEl, tempEl, humidityEl);
-
                 } $("#forecastRow").append(containerColumn);
+
             }
 
         });
@@ -75,9 +76,29 @@ $(document).ready(function () {
 
             $("#newCity").prepend(cityList);
 
-            localStorage.setItem("newCities", cityList);
-
         } createButton();
 
+        // When the button for city is clicked, it brings up that cities weather
+        $("#newCity").on("click", function (event) {
+            event.preventDefault();
+            $("#forecastRow").clear(containerColumn);
+            var cityList = $('<button>').text(cityName);
+
+            if (cityList != null || undefined) {
+                localStorage.setItem("newCities", JSON.stringify(cityList));
+                console.log(cityList)
+            };
+        })
     });
+
+    // This function stores city searches to local storage
+
+    function storedCities() {
+        var storedCity = JSON.parse(localStorage.getItem("newCities"));
+        if (storedCity !== null) {
+            cityList = storedCity;
+        }
+    } storedCities();
+
+
 });
