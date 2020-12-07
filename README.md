@@ -21,4 +21,4 @@ Always be prepared with the Weather Dashboard!
 * jQuery.com
 
 ## License
-[MIT LICENSE](LICENSE)
+[MIT LICENSE](LICENSE) &copy; Gabriele Falloon - ggfalloon@gmail.com
