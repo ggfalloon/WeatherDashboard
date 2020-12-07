@@ -21,4 +21,4 @@ Always be prepared with the Weather Dashboard!
 * jQuery.com
 
 ## License
-TBD
+[MIT LICENSE](LICENSE)
