@@ -1,7 +1,7 @@
 # WeatherDashboard
 
 ## Weather Dashboard with AJAX calls to Open Weather API
-Use this handy weather application to see the weather outlook in multiple cities so you can be prepared for any weather.
+Use this handy weather application to see the current weather and 5-day forecast in multiple cities so you can be prepared for any weather.
 
 ## Usage
 
@@ -16,7 +16,7 @@ Always be prepared with the Weather Dashboard!
 
 ## Credits
 
-* OpenWeathreMap.org
+* OpenWeatherMap.org
 * getBootstrap.com
 * jQuery.com
 
